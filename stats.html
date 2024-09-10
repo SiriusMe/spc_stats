@@ -1,0 +1,706 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="allstats.html">
+      
+      
+        <link rel="next" href="graph.html">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>X-R Stats - Statistical Process Control (SPC)</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.35f28582.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-mean-x-bar-chart" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Statistical Process Control (SPC)" class="md-header__button md-logo" aria-label="Statistical Process Control (SPC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Statistical Process Control (SPC)
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              X-R Stats
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Statistical Process Control (SPC)" class="md-nav__button md-logo" aria-label="Statistical Process Control (SPC)" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Statistical Process Control (SPC)
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="allstats.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SPC stats
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    X-R Stats
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="stats.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    X-R Stats
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-mean-x-bar-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Mean (X-bar) Chart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-range-r-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Range (R) Chart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-process-capability-indices-cp-and-cpk" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Process Capability Indices (Cp and Cpk)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="graph.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Graph Outputs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-mean-x-bar-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Mean (X-bar) Chart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-range-r-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Range (R) Chart
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-process-capability-indices-cp-and-cpk" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Process Capability Indices (Cp and Cpk)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-of-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary of Steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>X-R Stats</h1>
+
+<h4 id="1-mean-x-bar-chart">1. <strong>Mean (X-bar) Chart</strong></h4>
+<p>The X-bar chart monitors the mean of subgroups over time. The UCL and LCL are derived from the average of these means and the process variability.</p>
+<ul>
+<li>
+<p><strong>Mean (X-bar)</strong>:</p>
+<pre><code>X̅ = (Sum of the means of all subgroups) / (Number of subgroups)
+</code></pre>
+</li>
+<li>
+<p><strong>Upper Control Limit (UCL) for X-bar</strong>:</p>
+<pre><code>UCL(X) = X̅ + A₂ × R̅
+</code></pre>
+<p>Where:</p>
+<ul>
+<li>
+<p>X̅ = Average of subgroup means</p>
+</li>
+<li>
+<p>A₂ = Control chart constant (depends on subgroup size)</p>
+</li>
+<li>
+<p>R̅ = Mean range</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Lower Control Limit (LCL) for X-bar</strong>:</p>
+<pre><code>LCL(X) = X̅ - A₂ × R̅
+</code></pre>
+</li>
+</ul>
+<p>The constant ( A2 ) is found from standard statistical tables based on subgroup size:</p>
+<table>
+<thead>
+<tr>
+<th>Subgroup Size (n)</th>
+<th>( A2 )</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>1.880</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1.023</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0.729</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0.577</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0.483</td>
+</tr>
+</tbody>
+</table>
+<p>Given:</p>
+<ul>
+<li>
+<p>X̅ = 10.00</p>
+</li>
+<li>
+<p>R̅ = 0.05333</p>
+</li>
+<li>
+<p>Subgroup size n = 5 (so A₂ = 0.577)</p>
+</li>
+</ul>
+<p><strong>Upper Control Limit (UCL) for X-bar</strong>:
+UCL(X) = X̅ + A₂ × R̅<br />
+UCL(X) = 10.00 + 0.577 × 0.05333 = 10.03</p>
+<p><strong>Lower Control Limit (LCL) for X-bar</strong>:
+LCL(X) = X̅ - A₂ × R̅<br />
+LCL(X) = 10.00 - 0.577 × 0.05333 = 9.97</p>
+<hr />
+<h4 id="2-range-r-chart">2. <strong>Range (R) Chart</strong></h4>
+<p>The R chart monitors the variation (range) within your subgroups. The control limits depend on the average range and control chart constants.</p>
+<ul>
+<li>
+<p><strong>Mean Range (R-bar)</strong>:</p>
+<pre><code>R̅ = (Sum of the ranges of all subgroups) / (Number of subgroups)
+</code></pre>
+</li>
+<li>
+<p><strong>Upper Control Limit (UCL) for R chart</strong>:</p>
+<pre><code>UCL(R) = D₄ × R̅
+</code></pre>
+</li>
+<li>
+<p><strong>Lower Control Limit (LCL) for R chart</strong>:</p>
+<pre><code>LCL(R) = D₃ × R̅
+</code></pre>
+</li>
+</ul>
+<p>If LCL(R) is negative, set it to 0.</p>
+<p>The constants ( D3 ) and ( D4 ) depend on subgroup size.</p>
+<table>
+<thead>
+<tr>
+<th>Subgroup Size (n)</th>
+<th>( D3 )</th>
+<th>( D4 )</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>0.000</td>
+<td>3.267</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0.000</td>
+<td>2.574</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0.000</td>
+<td>2.282</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0.076</td>
+<td>2.114</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0.136</td>
+<td>2.004</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:  </p>
+<p>If R̅ = 0.05333 and subgroup size n = 5:</p>
+<p><strong>Upper Control Limit (UCL) for R chart</strong>:</p>
+<p>UCL(R) = 2.114 × 0.05333 = 0.11277 (rounded to 0.11)</p>
+<p><strong>Lower Control Limit (LCL) for R chart</strong>:</p>
+<p>LCL(R) = 0.076 × 0.05333 = 0.00405 (rounded to 0.00)</p>
+<hr />
+<h4 id="3-process-capability-indices-cp-and-cpk">3. <strong>Process Capability Indices (Cp and Cpk)</strong></h4>
+<p>These indices measure how well the process is performing relative to the specification limits.</p>
+<ul>
+<li><strong>Cp (Process Capability Index)</strong>:<pre><code> Cp = (USL - LSL) / (6 × σ)
+</code></pre>
+</li>
+</ul>
+<p>Where:</p>
+<ul>
+<li>
+<p>USL = Upper Specification Limit</p>
+</li>
+<li>
+<p>LSL = Lower Specification Limit</p>
+</li>
+<li>
+<p>σ = Process standard deviation (estimated using R/d₂, where d₂ is a constant depending on subgroup size)</p>
+</li>
+<li>
+<p><strong>Cpk (Process Capability Index)</strong>:</p>
+<pre><code>Cpk = min [(USL - X̅) / (3 × σ), (X̅ - LSL) / (3 × σ)]
+</code></pre>
+</li>
+</ul>
+<p>This compares how centered the process is between the specification limits.</p>
+<ul>
+<li>Constants ( d2 ) for subgroup sizes:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Subgroup Size (n)</th>
+<th>( d2 )</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>1.128</td>
+</tr>
+<tr>
+<td>3</td>
+<td>1.693</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2.059</td>
+</tr>
+<tr>
+<td>5</td>
+<td>2.326</td>
+</tr>
+<tr>
+<td>6</td>
+<td>2.534</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong>:  </p>
+<p>Given:</p>
+<ul>
+<li>
+<p>USL = 10.05</p>
+</li>
+<li>
+<p>LSL = 9.95</p>
+</li>
+<li>
+<p>X̅ = 10.00</p>
+</li>
+<li>
+<p>σ = 0.05333 / 2.326 = 0.02293</p>
+</li>
+</ul>
+<p><strong>Calculate Cp</strong>:</p>
+<p>Cp = (USL - LSL) / (6 × σ)  </p>
+<p>Cp = (10.05 - 9.95) / (6 × 0.02293)  </p>
+<p>Cp = 0.1 / 0.13758 = 0.727</p>
+<p><strong>Calculate Cpk</strong>:</p>
+<p>Cpk = min [(USL - X̅) / (3 × σ), (X̅ - LSL) / (3 × σ)] </p>
+<p>Cpk = min [(10.05 - 10.00) / (3 × 0.02293), (10.00 - 9.95) / (3 × 0.02293)]  </p>
+<p>Cpk = min [0.05 / 0.06879, 0.05 / 0.06879] </p>
+<p>Cpk = 0.727</p>
+<hr />
+<h3 id="summary-of-steps">Summary of Steps</h3>
+<ol>
+<li><strong>Calculate the Mean (X̅)</strong> and <strong>Range (R̅)</strong>.</li>
+<li>Use constants ( A2 ), ( D3 ), and ( D4 ) based on your subgroup size.</li>
+<li>Calculate the <strong>Control Limits</strong> for both the X-bar chart and the R chart.</li>
+<li>Use process standard deviation ( σ) (estimated using (R̅/ d2 ) to calculate <strong>Cp</strong> and <strong>Cpk</strong>.</li>
+</ol>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  </body>
+</html>
